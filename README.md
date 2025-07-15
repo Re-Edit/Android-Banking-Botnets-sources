@@ -23,4 +23,5 @@ This repository contains the source code of several Android banking malware fami
 
 ⚠️ Disclaimer: This project is for educational use only. Any misuse of the code for malicious purposes is strictly forbidden. The uploader does not promote or support cybercrime in any form.
 
-Credits: TG: @realgasx
+Credits:
+telegram, @realgasx
