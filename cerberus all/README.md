@@ -74,4 +74,4 @@ The uploader does not promote or support cybercrime in any form.
 ## 📎 Credits
 
 Curated and uploaded by: [`@realgasx`](https://t.me/realgasx) on Telegram  
-Date of last update: **April 2022**
+Date of last update & Collected: **April 2022**
