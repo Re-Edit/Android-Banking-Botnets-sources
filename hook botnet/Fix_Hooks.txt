@@ -1,0 +1,76 @@
+This is a tutorial for those who have just installed Hookbot.
+
+People who are not new can also benefit, unless they do not change the expiration date and user.
+
+This tutorial is specifically for the root user because in the database settings, the root user has an expiration date, and for login, you have to change the expiration date in the Hookbot database.
+
+Let's go through the tutorial:
+
+1. Check your .env file:
+
+```plaintext
+BACKEND_INTERFACE=0.0.0.0
+BACKEND_PORT=8089
+BACKEND_URL=http://"server_ip":8089/
+BACKEND_DEBUG=true
+SOCKET_IO_URL=http://"server_ip":3434
+FRONTEND_URL=http://"server_ip"
+
+FRONTEND_INTERFACE=0.0.0.0
+FRONTEND_PORT=80
+
+MYSQL_PORT=3306
+MYSQL_DATABASE=hook
+MYSQL_USER=no-root
+MYSQL_ROOT_PASSWORD=ZDVdkJdkkskdkskS
+MYSQL_PASSWORD=N7OkdksWKskkdD
+MYSQL_HOST="server_ip"
+
+PHP_SOCKETS_PORT=8000
+PHP_TCP_PORT=12342
+
+GOLANG_PORT=3434
+GOLANG_KEY=1A1zP1eP5QGefi2DMPTfTL5SLmv7Divf
+GOLANG_INITIAL_VECTOR=0123456789abcdef
+
+TIMEZONE=Europe/Moscow
+
+TELEGRAM_TOKEN="your_telegram_bot_token"
+Extract MYSQL_PASSWORD=? for the database login password and MYSQL_USER=?? for the database login user.
+
+Connect to the database:
+
+bash
+Copy code
+mysql -h your_vps_ip -P 3306 -u your_mysql_user -p your_mysql_password
+If you haven't installed the MySQL client yet, you can type sudo apt install mysql-client-core-8.0.
+
+Replace your_mysql_user, your_mysql_password, and your_vps_ip with your actual MySQL user, password, and VPS IP.
+
+After connecting, run the following commands:
+sql
+Copy code
+show databases;
+use hook;
+select * from users;
+You will see the user data:
+
+sql
+Copy code
+mysql> select * from users;
++----+------+--------------------------------------------------------------+-------+---------------------+-----------+---------------------+-----------------+-------------+---------------------+---------------------+----------------------+--------------------+
+| id | name | password                                                     | token | email               | is_paused | expired_at | created_user_id | telegram_id | created_at          | updated_at          | failed_auth_attempts | telegram_auth_code |
++----+------+--------------------------------------------------------------+-------+---------------------+-----------+---------------------+-----------------+-------------+---------------------+---------------------+----------------------+--------------------+
+|  1 | root | $2y$10$zHWmt0.nPfTShpJjQElCVeve4qakjKlVG20SfRRXJx1dxDidT7.Wu | root  | example@example.com |         0 | NULL       |            NULL | NULL        | 2023-12-20 15:04:09 | 2023-12-20 15:04:09 |                    0 | NULL               |
++----+------+--------------------------------------------------------------+-------+---------------------+-----------+---------------------+-----------------+-------------+---------------------+---------------------+----------------------+--------------------+
+1 row in set (0.00 sec)
+To update the created_at, updated_at, and expired_at columns, run the following query:
+sql
+Copy code
+update users
+set created_at = '2024-12-01 23:59:59', updated_at = '2024-12-01 23:59:59', expired_at = '2024-12-01 23:59:59'
+where id = 1;
+Make sure to replace '2024-12-01 23:59:59' with the desired date and time, and adjust the where clause if you want to update a different user.
+
+After completing the update, type exit; to exit the MySQL console, and then type reboot to restart.
+Success! If you encounter any problems, contact @Lockthesystem.
