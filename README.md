@@ -18,7 +18,10 @@ This repository contains the source code of several Android banking malware fami
 * Octo Botnet
 -Built upon Cerberus codebase. Octo offers advanced screen streaming (like VNC), keylogging, and background interaction — meaning it can control the device without showing any visible UI changes to the victim.-
 
-* Ermac 3 Botnet
+* Ermac 3 Botnet (📅 This source was collected on August 4, 2024, for research and archival purposes.)
 -One of the most advanced and recent Android banking trojans. Features include overlay attacks, encrypted C2 communication, app harvesting, injection via Accessibility, and targeting of over 400 banking apps.-
 
 ⚠️ Disclaimer: This project is for educational use only. Any misuse of the code for malicious purposes is strictly forbidden. The uploader does not promote or support cybercrime in any form.
+
+Credits:
+telegram, @realgasx
